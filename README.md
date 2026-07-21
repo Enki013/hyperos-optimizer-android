@@ -112,6 +112,8 @@ App-level preferences:
 Sets `system/peak_refresh_rate = 120` and `system/min_refresh_rate = 0`, then enables the user refresh rate override. This bypasses per-app refresh rate restrictions imposed by HyperOS and forces 120Hz globally across all apps — including those the system would normally cap at 60Hz.
 
 > Turning this off resets `min_refresh_rate` to 60 and removes the override flag.
+>
+> **Thermal throttling note:** If HyperOS still drops the display to 60Hz under heat or thermal pressure, this ADB setting cannot fully override the firmware thermal policy. In that case, the practical fix requires root and the HyperCeiler module: enable **Disable thermal for refresh rate** inside HyperCeiler. Without root/HyperCeiler, the system may continue to force 60Hz when its thermal limiter triggers.
 
 #### Stacked Recent Apps
 Writes `global/task_stack_view_layout_style = 2`. Changes the recent apps view to a stacked card style supported by HyperOS System Launcher and POCO Launcher builds. Turning it off deletes the setting and restores the default style.
